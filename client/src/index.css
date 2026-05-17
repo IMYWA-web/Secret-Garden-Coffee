@@ -1,0 +1,227 @@
+/* =============================================================================
+   GLOBAL STYLES — Secret Garden Coffee
+   Design System: Analog Warmth Botanical Edition
+   
+   Color Philosophy:
+   - Background: Aged parchment (#FAF7EE) / Dark espresso (#120D08) / Forest (#1C2E1A)
+   - Primary accent: Terracotta rust (#A64E2F / #C8722A)
+   - Text: Warm charcoal (#1C2E1A) / Cream (#EDE5D0)
+   
+   Typography:
+   - Display: Abril Fatface (headings, titles)
+   - Body: Lora (paragraphs, readable text)
+   - Labels: IBM Plex Mono (metadata, tags, prices)
+   ============================================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0px; /* Sharp corners for vintage print aesthetic */
+  --background: oklch(0.98 0.012 85);       /* Aged parchment */
+  --foreground: oklch(0.18 0.04 145);       /* Dark forest */
+  --card: oklch(0.96 0.010 85);
+  --card-foreground: oklch(0.18 0.04 145);
+  --popover: oklch(0.98 0.012 85);
+  --popover-foreground: oklch(0.18 0.04 145);
+  --primary: oklch(0.50 0.12 40);           /* Terracotta */
+  --primary-foreground: oklch(0.96 0.010 85);
+  --secondary: oklch(0.22 0.06 145);        /* Forest green */
+  --secondary-foreground: oklch(0.96 0.010 85);
+  --muted: oklch(0.93 0.008 85);
+  --muted-foreground: oklch(0.45 0.03 85);
+  --accent: oklch(0.55 0.14 40);            /* Warm rust */
+  --accent-foreground: oklch(0.96 0.010 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.85 0.012 85);
+  --input: oklch(0.85 0.012 85);
+  --ring: oklch(0.50 0.12 40);
+}
+
+/* ─── Font families ─────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lora', 'Battambang', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+/* ─── Typography utilities ───────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Abril Fatface', 'Kantumruy Pro', 'Georgia', serif;
+  font-weight: 400;
+}
+
+.font-body {
+  font-family: 'Lora', 'Battambang', 'Georgia', serif;
+}
+
+.font-mono-label {
+  font-family: 'IBM Plex Mono', 'Battambang', 'Courier New', monospace;
+}
+
+/* ─── Section label helper ───────────────────────────────────────────────── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: #A64E2F;
+  opacity: 0.6;
+}
+
+/* ─── Entrance animations ────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.7s ease-out 0.1s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.7s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.7s ease-out 0.35s both;
+}
+
+.animate-fade-up-delay-4 {
+  animation: fade-up 0.7s ease-out 0.5s both;
+}
+
+.animate-fade-up-delay-5 {
+  animation: fade-up 0.7s ease-out 0.65s both;
+}
+
+/* ─── Container ──────────────────────────────────────────────────────────── */
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #120D08;
+}
+::-webkit-scrollbar-thumb {
+  background: #A64E2F;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8722A;
+}
+
+/* ─── Khmer Language Typography Adjustments ──────────────────────────────── */
+.lang-km .font-mono-label,
+.lang-km [class*="tracking-"] {
+  letter-spacing: normal !important;
+}
+
+.lang-km .text-\[8px\],
+.lang-km .text-\[9px\],
+.lang-km .text-\[10px\],
+.lang-km .text-\[11px\],
+.lang-km .text-xs {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+.lang-km .text-sm {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+.lang-km .text-base {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+}
