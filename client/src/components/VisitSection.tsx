@@ -81,7 +81,7 @@ export default function VisitSection() {
               </div>
               <div>
                 <p className="font-mono-label text-[10px] tracking-[0.3em] uppercase text-[#EDE5D0]/40 mb-1">{t("visit.phone")}</p>
-                <a href="tel:+85512376748" className="font-body text-[#EDE5D0] text-base hover:text-[#C8722A] transition-colors">
+                <a href="tel:012376748" className="font-body text-[#EDE5D0] text-base hover:text-[#C8722A] transition-colors">
                   +855 12 376 748
                 </a>
               </div>

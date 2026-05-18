@@ -172,7 +172,7 @@ export default function Navbar() {
           </div>
           <p className="text-center font-body text-[11px] text-[#EDE5D0]/50 mt-4 italic">{t("mobile.info")}</p>
           <a
-            href="tel:+85512376748"
+            href="tel:012376748"
             className="mt-1 flex items-center justify-center bg-[#A64E2F] text-[#EDE5D0] px-4 py-3"
           >
             <span className="font-mono-label text-[10px] tracking-[0.2em] uppercase">{t("mobile.contact")}</span>
